@@ -5,9 +5,9 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         00000156  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000001a  00800060  00000156  000001ca  2**0
+  1 .data         00000018  00800060  00000156  000001ca  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000001e4  2**0
+  2 .comment      00000030  00000000  00000000  000001e2  2**0
                   CONTENTS, READONLY
   3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000214  2**2
                   CONTENTS, READONLY
@@ -70,7 +70,7 @@ Disassembly of section .text:
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
   6e:	0d 92       	st	X+, r0
-  70:	aa 37       	cpi	r26, 0x7A	; 122
+  70:	a8 37       	cpi	r26, 0x78	; 120
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
   76:	0e 94 99 00 	call	0x132	; 0x132 <main>
@@ -177,7 +177,7 @@ Disassembly of section .text:
 int main(void) { 
 	LCD_Init(); /* Initialize LCD */ 
  132:	0e 94 55 00 	call	0xaa	; 0xaa <LCD_Init>
-	LCD_String("Lesson1: Hello"); /* Write a string on 1st line of LCD*/ 
+	LCD_String("MSP II: Hello"); /* Write a string on 1st line of LCD*/ 
  136:	80 e6       	ldi	r24, 0x60	; 96
  138:	90 e0       	ldi	r25, 0x00	; 0
  13a:	0e 94 8a 00 	call	0x114	; 0x114 <LCD_String>
@@ -185,7 +185,7 @@ int main(void) {
  13e:	80 ec       	ldi	r24, 0xC0	; 192
  140:	0e 94 41 00 	call	0x82	; 0x82 <LCD_Cmd>
 	LCD_String("Elizabeth"); /* Write string on 2nd line*/
- 144:	8f e6       	ldi	r24, 0x6F	; 111
+ 144:	8e e6       	ldi	r24, 0x6E	; 110
  146:	90 e0       	ldi	r25, 0x00	; 0
  148:	0e 94 8a 00 	call	0x114	; 0x114 <LCD_String>
 }
